@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300,200");
-
-/*
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');/*
 	Halcyonic by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
@@ -72,9 +70,22 @@ input, select, textarea {
 	appearance: none;
 }
 
+#header #logo img:hover{
+	transform: scale(1.07);
+	transition: transform 0.3s ease;
+}
+
+#header #logo img {
+	transform: scale(1);
+	transition: transform 0.3s ease;
+}
+
 #logo img {
-	max-width: 15%;
-	height: auto;
+	max-width: 10vw;
+	min-width: 80px;
+	width:100%;
+	height:auto;
+	
 }
 
 /* Basic */
@@ -91,7 +102,7 @@ input, select, textarea {
 		background: #D4D9DD url("images/bg03.jpg");
 		color: #474f51;
 		font-size: 13.5pt;
-		font-family: 'Yanone Kaffeesatz';
+		font-family: 'Oswald';
 		line-height: 1.85em;
 		font-weight: 300;
 		
@@ -100,7 +111,7 @@ input, select, textarea {
 	input, textarea, select {
 		color: #474f51;
 		font-size: 13.5pt;
-		font-family: 'Yanone Kaffeesatz';
+		font-family: 'Oswald';
 		line-height: 1.85em;
 		font-weight: 300;
 	}
@@ -408,6 +419,137 @@ input, select, textarea {
 				.row.gtr-200.gtr-uniform > * {
 					padding-top: 50px;
 				}
+
+.slideshow-container {
+	position: relative;
+	width:100%;
+	max-width: 100%;
+	margin:0;
+	box-shadow: none;
+	height: 700px;
+	overflow: hidden;
+}
+
+.mySlides {
+	display: none;
+	width:100%;
+	height: 700px;
+	position: relative;
+}
+
+.mySlides:not(:first-child) {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.mySlides img {
+	width: 100%;
+	height: 700px;
+	object-fit: cover;
+	object-position: center;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); 
+}
+
+/* Navigation buttons */
+.prev, .next {
+	text-decoration: none;
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	padding: 16px;
+	color: white;
+	background: rgba(0,0,0,0.5);
+	transform: translateY(-50%);
+}
+
+.next {
+	right: 0;
+}
+
+/* Dots */
+.dot-container {
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	padding: 5px;
+	margin: 0;
+	z-index: 2;
+}
+
+.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 3px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.3s ease;
+}
+
+.active, .dot:hover {
+	background-color: #717171;
+}
+
+.fade {
+	animation-name: fade;
+	animation-duration: 3s;
+}
+
+.info-overlay {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    background-color: rgba(53, 61, 64, 0.85); /* Dark gray with opacity */
+    padding: 2.5vw;
+    width: 35%;
+	min-width: 280px;
+	max-width: 400px;
+    z-index: 5;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.overlay-content h2 {
+    color: #fff;
+    font-size: clamp(1.8em, 2.5vw, 2.2em);
+    margin-bottom: 15px;
+    font-weight: 400;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.overlay-content p {
+    color: #fff;
+    font-size: clamp(0.85em, 1vw, 0.95em);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.learn-more-btn {
+    display: inline-block;
+    padding: clamp(6px, 0.8vw, 8px) clamp(15px, 1.5vw, 20px);
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: 500;
+	font-size: clamp(0.8em, 1vw, 0.9em);
+    transition: background-color 0.3s ease;
+}
+
+.learn-more-btn:hover {
+    background-color: #cc0000;
+}
+
+
+@keyframes fade {
+	from {opacity: .4} 
+	to {opacity: 1}
+}
 
 		@media screen and (max-width: 1680px) {
 
@@ -1142,6 +1284,11 @@ input, select, textarea {
 							padding-top: 50px;
 						}
 
+			.info-overlay {
+				width: 45%;
+				left:4%;
+			}
+
 		}
 
 		@media screen and (max-width: 736px) {
@@ -1387,6 +1534,28 @@ input, select, textarea {
 							padding-top: 40px;
 						}
 
+			.info-overlay {
+				width:80%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				padding: 20px;
+			}
+
+			.overlay-content h2{
+				font-size: 1.8em;
+				margin-bottom: 10px;
+			}
+
+			.overlay-content p {
+				font-size: 0.85em;
+				margin-bottom: 15px;
+			}
+
+			.learn-more-btn {
+				padding: 6px 15px;
+				font-size: 0.8em;
+			}
+
 		}
 
 /* Multi-use */
@@ -1521,7 +1690,7 @@ input, select, textarea {
 
 	#header {
 		position: relative;
-		background: #3B4346 url("images/bg01.jpg");
+		background: #474f51 url("images/bg01.jpg");
 		border-bottom: solid 1px #272d30;
 		box-shadow: inset 0px -1px 0px 0px #51575a;
 		text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.75);
@@ -1530,6 +1699,7 @@ input, select, textarea {
 		#header > .container {
 			position: relative;
 			min-height: 155px;
+			padding-left: 20px;
 			
 		}
 
@@ -1556,30 +1726,75 @@ input, select, textarea {
 		}
 
 			#header nav a {
-				color: #c6c8c8;
+				color: whitesmoke !important;
+				font-weight: 500;
+				text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 				text-decoration: none;
 				font-size: 1.4em;
-				margin-left: 60px;
+				margin-left: 50px;
 				outline: 0;
 				
 			}
 
 				#header nav a:hover {
-					color: #f6f8f8;
+					color: #333 !important;
 				}
 
+
+				.login-container{
+					position:absolute;
+					top:30px;
+					right: -25%;
+				}
+
+				.login-btn {
+					color: #474f51;
+					font-weight: 500;
+					text-decoration: none;
+					font-size: 1.2em;
+					text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+					padding: 5px 15px;
+				}
+
+				.login-btn:hover {
+					color: #333;
+				}
+				
 		.subpage #header > .container {
 			height: 155px;
 			
 		}
 
+		#logo {
+			display: inline-block;
+			position: relative;
+			margin-left: -100px;
+			margin-top: 5px;
+			
+		}
+
+		#logo img{
+			max-width: 150px;
+			width: 100%;
+			height: auto;
+			position: relative;
+		}
+
 /* Banner */
 
 	#banner {
-		border-top: solid 1px #222628;
-		box-shadow: inset 0px 1px 0px 0px #3e484a;
-		padding: 35px 0 35px 0;
-		color: #fff;
+		padding: 0;
+		width:100%;
+		margin-bottom: 0;
+		border-bottom: none;
+	}
+
+	#banner .container {
+		width: 100%;
+		max-width: 100%;
+		margin:0;
+		padding:0;
+		
 	}
 
 		#banner .bordered-feature-image {
@@ -1602,6 +1817,8 @@ input, select, textarea {
 		padding: 45px 0 45px 0;
 		text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.75);
 		color: #a0a8ab;
+		border-top: none;
+		margin-top: 0;
 	}
 
 		#features h2 {
@@ -1810,6 +2027,15 @@ input, select, textarea {
 				#header > .container:first-child {
 					display: none;
 				}
+			
+			#header #logo {
+				display: none !important;
+			}
+
+			.header-content {
+				display: none !important;
+			}
+			
 
 		/* Content */
 
@@ -1859,46 +2085,42 @@ input, select, textarea {
 					text-align: center;
 					font-size: 1.2em;
 					font-weight: 400;
-					line-height: 48px;
+					line-height: 44px;
+					color:black;
+					margin-left: 60px;
+				}
+
+				#titleBar .title .and-symbol {
+					color:red;
 				}
 
 				#titleBar .toggle {
+					z-index: 10002;
+				}
+
+				#titleBar .toggle img{
 					position: absolute;
-					left: 0;
-					top: 0;
-					width: 80px;
-					height: 60px;
+					left: 15px;
+					top: 2px;
+					height: 40px;
+					width: auto;
+					
 				}
 
 					#titleBar .toggle:after {
-						content: '';
-						display: block;
-						position: absolute;
-						top: 6px;
-						left: 6px;
-						color: #fff;
-						background: rgba(255, 255, 255, 0.025);
-						box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.1), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.05), inset 0px -8px 10px 0px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
-						text-shadow: -1px -1px 1px black;
-						width: 49px;
-						height: 31px;
-						border-radius: 8px;
+						display: none;
 					}
 
 					#titleBar .toggle:before {
-						content: '';
-						position: absolute;
-						width: 20px;
-						height: 30px;
-						background: url("images/mobileUI-site-nav-opener-bg.svg");
-						top: 15px;
-						left: 20px;
-						z-index: 1;
-						opacity: 0.25;
+						display: none;
+					}
+
+					#titleBar .toggle:hover img{
+						transform: scale(1.07);
 					}
 
 					#titleBar .toggle:active:after {
-						background: rgba(255, 255, 255, 0.05);
+						background: none;
 					}
 
 			#navPanel {
@@ -1925,6 +2147,18 @@ input, select, textarea {
 				background: url("images/bg04.jpg");
 				box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.25), inset -2px 0px 25px 0px rgba(0, 0, 0, 0.5);
 				text-shadow: -1px -1px 1px black;
+			}
+
+			#navPanel #logo, #navPanel a[href="index.html"]:first-child {
+				display: none !important;
+			}
+
+			#navPanel .link[href="threecolumn.html"] img {
+				display: none !important;
+			}
+
+			#navPanel .link.depth-0[href="index.html"] {
+				display: none;
 			}
 
 				#navPanel .link {
@@ -1960,11 +2194,20 @@ input, select, textarea {
 				transform: translateX(275px);
 			}
 
+			
+
+
 			body.navPanel-visible #navPanel {
 				-moz-transform: translateX(0);
 				-webkit-transform: translateX(0);
 				-ms-transform: translateX(0);
 				transform: translateX(0);
+			}
+
+			
+			#logo img{
+				max-width: 120px;
+				
 			}
 
 	}
@@ -2035,6 +2278,10 @@ input, select, textarea {
 
 			#copyright {
 				padding: 20px 30px;
+			}
+
+			#logo img {
+				max-width: 100px;
 			}
 
 	}

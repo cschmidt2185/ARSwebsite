@@ -22,8 +22,8 @@
 		// Title Bar.
 			$(
 				'<div id="titleBar">' +
-					'<a href="#navPanel" class="toggle"></a>' +
-					'<span class="title">' + $('#logo').html() + '</span>' +
+					'<a href="#navPanel" class="toggle"><img src="../assets/images/ARlogo.png" alt="Company Logo"></a>' +
+					'<span class="title">A<span class="and-symbol">&</span>R Services</span>' +
 				'</div>'
 			)
 				.appendTo($body);
