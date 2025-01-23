@@ -1,0 +1,53 @@
+
+<!-- admin dashboard html !-->
+ 
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>A&R Services Admin Dashboard</title>
+    <!-- ADD STYLING HERE FOR HEADER -->
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="submissions-list">
+            <!-- form submissions load here  -->
+        </div>
+    </div>
+
+    <script>
+    async function loadSubmissions() {
+        try {
+            const response = await fetch('/api/admin/submissions', {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+                }
+            });
+            
+            if (response.ok) {
+                const submissions = await response.json();
+                displaySubmissions(submissions);
+            }
+        } catch (error) {
+            console.error('Error loading submissions:', error);
+        }
+    }
+
+    function displaySubmissions(submissions) {
+        const container = document.querySelector('.submissions-list');
+        container.innerHTML = submissions.map(submission => `
+            <div class="submission-card">
+                <h3>${submission.subject}</h3>
+                <p>From: ${submission.name}</p>
+                <p>Status: ${submission.status}</p>
+                <button onclick="viewDetails('${submission._id}')">
+                    View Details
+                </button>
+            </div>
+        `).join('');
+    }
+
+    // Load submissions when page loads
+    loadSubmissions();
+    </script>
+</body>
+</html>
