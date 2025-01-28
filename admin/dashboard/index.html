@@ -5,10 +5,46 @@
 <html>
 <head>
     <title>A&R Services Admin Dashboard</title>
-    <!-- ADD STYLING HERE FOR HEADER -->
+    <link rel="stylesheet" href="../css/main.css" />
+    <style>
+       .dashboard-container {
+            padding: 20px;
+        }
+        .submissions-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .submission-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .submission-card h3 {
+            margin: 0 0 10px;
+        }
+        .submission-card p {
+            margin: 5px 0;
+        }
+        .submission-card button {
+            background-color: #ED391B;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submission-card button:hover {
+            background-color: #fd492b;
+        } 
+    </style>
+    
 </head>
 <body>
     <div class="dashboard-container">
+        <h1>Admin Dashboard</h1>
         <div class="submissions-list">
             <!-- form submissions load here  -->
         </div>
@@ -26,6 +62,8 @@
             if (response.ok) {
                 const submissions = await response.json();
                 displaySubmissions(submissions);
+            } else {
+                console.error('Failed to load submissions:', response.statusText);
             }
         } catch (error) {
             console.error('Error loading submissions:', error);
@@ -44,6 +82,11 @@
                 </button>
             </div>
         `).join('');
+    }
+
+    function viewDetails(submissionId) {
+        // implement detailed submission funvtionality
+        console.log('View details for submission:', submissionId);
     }
 
     // Load submissions when page loads

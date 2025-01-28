@@ -11,8 +11,6 @@ router.post('/contact', async (req, res) => {
     try {
         const submission = new ContactSubmission(req.body);
         await submission.save();
-        
-        // ADD EMAIL NOTIFICATIONS HERE
         res.status(201).json({ success: true });
     } catch (error) {
         res.status(400).json({ error: error.message });
@@ -22,6 +20,12 @@ router.post('/contact', async (req, res) => {
 // get all subs via protected route
 router.get('/admin/submissions', authMiddleware, async (req, res) => {
     try {
+        //check is user has admin auth
+        if (req.employee.role != 'admin') {
+            return res.status(403).json({ error: 'Access denied. Admins only.' })
+        }
+
+        
         const submissions = await ContactSubmission.find({})
             .sort({ createdAt: -1 })
             .populate('assignedTo', 'name email');
